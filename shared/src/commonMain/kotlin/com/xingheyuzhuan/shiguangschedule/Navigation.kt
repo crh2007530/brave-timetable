@@ -33,6 +33,8 @@ sealed interface Destination : NavKey {
     @Serializable data object CourseSchedule : MainDestination
     @Serializable data object Settings : MainDestination
     @Serializable data object TodaySchedule : MainDestination
+    @Serializable data object CampusLife : MainDestination
+    @Serializable data object CourseDeadlines : Destination
 
     // --- 二级功能页面 ---
     @Serializable data object TimeScheduleManagement : Destination
@@ -117,6 +119,8 @@ val navSerializersModule = SerializersModule {
         subclass(Destination.CourseSchedule::class)
         subclass(Destination.Settings::class)
         subclass(Destination.TodaySchedule::class)
+        subclass(Destination.CampusLife::class)
+        subclass(Destination.CourseDeadlines::class)
 
         // 普通功能页面
         subclass(Destination.TimeScheduleManagement::class)

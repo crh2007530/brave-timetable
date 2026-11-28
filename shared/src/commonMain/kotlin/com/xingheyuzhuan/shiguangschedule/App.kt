@@ -1,6 +1,8 @@
 package com.xingheyuzhuan.shiguangschedule
 
 import com.xingheyuzhuan.shiguangschedule.ui.exams.MyExamsScreen
+import com.xingheyuzhuan.shiguangschedule.ui.campus.CampusLifeScreen
+import com.xingheyuzhuan.shiguangschedule.ui.campus.CourseDeadlinesScreen
 
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
@@ -256,6 +258,8 @@ fun ScreenContent(
         Destination.WidgetStyleSettings -> WidgetStyleSettingsScreen(onBack)
         Destination.HolidayManagement -> HolidayManagementScreen(onBack = onBack)
         Destination.MyExams -> MyExamsScreen(onNavigate = onNavigate)
+        Destination.CampusLife -> CampusLifeScreen(onOpenDeadlines = { onNavigate(Destination.CourseDeadlines) })
+        Destination.CourseDeadlines -> CourseDeadlinesScreen(onBack)
 
         Destination.TimeScheduleManagement -> TimeScheduleManagementScreen(
             onBack = onBack,

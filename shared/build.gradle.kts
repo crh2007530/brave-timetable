@@ -105,6 +105,7 @@ kotlin {
         }
 
         androidMain.dependencies {
+            implementation("com.google.zxing:core:3.5.3")
             implementation(libs.androidx.sqlite.framework)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.androidx.webkit)

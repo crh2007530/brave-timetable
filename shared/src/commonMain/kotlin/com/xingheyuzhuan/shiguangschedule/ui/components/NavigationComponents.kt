@@ -59,6 +59,8 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.resources.vectorResource
 import shiguangschedule.shared.generated.resources.Res
 import shiguangschedule.shared.generated.resources.nav_exams
+import shiguangschedule.shared.generated.resources.nav_campus_life
+import shiguangschedule.shared.generated.resources.home_24px
 import shiguangschedule.shared.generated.resources.calendar_today_24px
 import shiguangschedule.shared.generated.resources.account_circle_24px
 import shiguangschedule.shared.generated.resources.account_circle_filled_24px
@@ -105,6 +107,8 @@ fun AdaptiveNavigationScaffold(
     val courseLabel = stringResource(Res.string.nav_course_schedule)
     val examsLabel = stringResource(Res.string.nav_exams)
     val examsIcon = vectorResource(Res.drawable.calendar_today_24px)
+    val campusLabel = stringResource(Res.string.nav_campus_life)
+    val campusIcon = vectorResource(Res.drawable.home_24px)
     val settingsLabel = stringResource(Res.string.nav_settings)
 
     val todaySelectedIcon = vectorResource(Res.drawable.view_agenda_filled_24px)
@@ -118,7 +122,7 @@ fun AdaptiveNavigationScaffold(
         todayLabel, courseLabel, settingsLabel,
         todaySelectedIcon, todayUnselectedIcon,
         courseSelectedIcon, courseUnselectedIcon,
-        settingsSelectedIcon, settingsUnselectedIcon, examsLabel, examsIcon
+        settingsSelectedIcon, settingsUnselectedIcon, examsLabel, examsIcon, campusLabel, campusIcon
     ) {
         listOf(
             NavItemData(
@@ -134,6 +138,7 @@ fun AdaptiveNavigationScaffold(
                 unselectedIcon = courseUnselectedIcon
             ),
             NavItemData(examsLabel, Destination.MyExams, examsIcon, examsIcon),
+            NavItemData(campusLabel, Destination.CampusLife, campusIcon, campusIcon),
             NavItemData(
                 label = settingsLabel,
                 destination = Destination.Settings,

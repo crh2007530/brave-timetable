@@ -112,7 +112,15 @@ fun MyExamsScreen(
                         val schedule = listOf(exam.date, exam.time).filter { it.isNotBlank() }.joinToString("  ")
                         if (schedule.isNotBlank()) Text(schedule, color = MaterialTheme.colorScheme.primary)
                         if (exam.room.isNotBlank()) Text(exam.room)
-                        for (detail in exam.details) {
+                        val seatNumber = exam.seatNumber
+                        Text(
+                            text = if (seatNumber == null) stringResource(Res.string.exam_seat_unavailable)
+                                else stringResource(Res.string.exam_seat_number, seatNumber),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = if (seatNumber == null) MaterialTheme.colorScheme.onSurfaceVariant
+                                else MaterialTheme.colorScheme.primary
+                        )
+                        for (detail in exam.details.filterNot { it.isSeatNumber }) {
                             Text("${detail.label}  ${detail.value}", color = MaterialTheme.colorScheme.onSurfaceVariant)
                         }
                     }

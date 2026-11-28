@@ -18,10 +18,26 @@ data class SchoolExam(
     val time: String,
     val room: String,
     val details: List<ExamDetail>
-)
+) {
+    val seatNumber: String?
+        get() = details.asSequence()
+            .filter { it.isSeatNumber }
+            .map { it.value.trim() }
+            .firstOrNull { it.isNotEmpty() && !missingSeatNumber.matches(it) }
+}
 
 @Serializable
-data class ExamDetail(val label: String, val value: String)
+data class ExamDetail(val label: String, val value: String) {
+    val isSeatNumber: Boolean
+        get() = label in seatLabels
+}
+
+// These labels are imported by xatu_exams.js. "Seat" also covers cached records.
+private val seatLabels = setOf(
+    "考场座号", "考试座号", "座位号", "座号", "座位", "座位编号", "考试座位", "考试座位号",
+    "考场座位号", "考生座位号", "机位号", "Seat"
+)
+private val missingSeatNumber = Regex("[~～－\\-—–]+|无|暂无|未安排|未分配|未公布|未发布|座位未安排|座位未分配|座位未公布")
 
 @Single
 class SchoolExamRepository(@Named("SchoolExamCache") private val store: DataStore<Preferences>) {

@@ -11,6 +11,24 @@
     <uses-permission android:name="android.permission.POST_PROMOTED_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="false" />
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+    <queries>
+        <package android:name="com.jhj.cloudman" />
+        <package android:name="com.midea.vm.washer" />
+        <package android:name="com.eg.android.AlipayGphone" />
+        <package android:name="com.chaoxing.mobile" />
+        <package android:name="com.able.wisdomtree" />
+        <package android:name="cn.unipus.cloud" />
+        <package android:name="cn.unipus.ucampus.student" />
+        <package android:name="com.pointhouse.chiguan" />
+        <package android:name="com.fifedu.fifiplat" />
+    </queries>
 
     <application
         android:name=".MyApplication"
